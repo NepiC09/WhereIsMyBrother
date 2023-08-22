@@ -1,0 +1,48 @@
+
+maloi.png
+size: 2777,1084
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+Layer 1
+  rotate: false
+  xy: 2404, 511
+  size: 46, 19
+  orig: 46, 19
+  offset: 0, 0
+  index: -1
+Layer 2 copy
+  rotate: true
+  xy: 2404, 695
+  size: 387, 371
+  orig: 387, 371
+  offset: 0, 0
+  index: -1
+Layer 22 Copy
+  rotate: false
+  xy: 2404, 532
+  size: 51, 41
+  orig: 51, 41
+  offset: 0, 0
+  index: -1
+Layer 24
+  rotate: false
+  xy: 2502, 653
+  size: 48, 40
+  orig: 48, 40
+  offset: 0, 0
+  index: -1
+Layer 28 copy
+  rotate: false
+  xy: 2404, 575
+  size: 96, 118
+  orig: 96, 118
+  offset: 0, 0
+  index: -1
+maloi
+  rotate: false
+  xy: 2, 2
+  size: 2400, 1080
+  orig: 2400, 1080
+  offset: 0, 0
+  index: -1
