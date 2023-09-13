@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SaveSystemManager : MonoBehaviour
 {
@@ -22,7 +23,22 @@ public class SaveSystemManager : MonoBehaviour
     {
         fileDataHandler = new FileDataHandler(Application.persistentDataPath, fileName);
         this.dataPersistanceObjectsList = FindAllDataPersistanceObjects();
-        LoadGame();
+
+        if (SceneManager.GetActiveScene().buildIndex == 1)
+        {
+            if (GlobalScripts.isStartedNewGame)
+            {
+                NewGame();
+            }
+            else
+            {
+                LoadGame();
+            }
+        }
+        else
+        {
+            this.gameData = fileDataHandler.Load();
+        }
     }
 
     public void NewGame()
@@ -75,5 +91,10 @@ public class SaveSystemManager : MonoBehaviour
         IEnumerable<IDataPersistance> dataPersistanceObjects = FindObjectsOfType<MonoBehaviour>(true).OfType<IDataPersistance>();
 
         return new List<IDataPersistance>(dataPersistanceObjects);
+    }
+
+    public bool isHaveSave()
+    {
+        return fileDataHandler.Load() != null;
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 public class GameData
 {
     public Vector3 playerPosition;
-    public CompositeCollider2D locationCompositeCollider; //collider for camera
+    public string locationCompositeCollider; //collider for camera
     //QUEST, DIALOGUE, BUBBLES
     public SerializableDictionary<string, bool> dialogueGlobalVariables; //variables for quest and dialogues
     public bool[] bubblesPlayed;
@@ -34,7 +34,7 @@ public class GameData
     public GameData()
     {
         playerPosition = new Vector3(38.1f,0,0);
-        locationCompositeCollider = Fader.Instance.startLocation;
+        if(Fader.Instance != null) locationCompositeCollider = "hallway";
         //QUEST, DIALOGUE, BUBBLES
         dialogueGlobalVariables = new SerializableDictionary<string, bool>();
         bubblesPlayed = new bool[3];
@@ -58,6 +58,6 @@ public class GameData
         //LITTLE BOY VISUAL
         littleBoySkin = LittleBoyVisual.Skins.HELMET;
         //GAME MANAGER
-        gameManager_language = GameManager.RU_LOCALIZATION;
+        gameManager_language = GlobalScripts.RU_LOCALIZATION;
     }
 }

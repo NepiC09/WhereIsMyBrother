@@ -33,12 +33,49 @@ public class Fader : MonoBehaviour, IDataPersistance
 
     public void LoadData(GameData gameData)
     {
-        currentCollider = gameData.locationCompositeCollider;
+        switch (gameData.locationCompositeCollider)
+        {
+            case "hallway":
+                currentCollider = GameManager.Instance.hallway;
+                break;
+            case "entrance":
+                currentCollider = GameManager.Instance.entrance; 
+                break;
+            case "bathroom":
+                currentCollider = GameManager.Instance.bathroom; 
+                break;
+            case "livingroom":
+                currentCollider = GameManager.Instance.livingroom; 
+                break;
+            case "kitchen":
+                currentCollider = GameManager.Instance.kitchen; 
+                break;
+            case "annroom":
+                currentCollider = GameManager.Instance.annroom; 
+                break;
+        }
+
         cinemachineConfiner.m_BoundingShape2D = currentCollider;
     }
     public void SaveData(ref GameData gameData)
     {
-        gameData.locationCompositeCollider = currentCollider;
+        if(currentCollider == GameManager.Instance.hallway)
+            gameData.locationCompositeCollider = "hallway";
+
+        else if(currentCollider == GameManager.Instance.bathroom)
+            gameData.locationCompositeCollider = "bathroom";
+        
+        else if(currentCollider == GameManager.Instance.annroom)
+            gameData.locationCompositeCollider = "annroom";
+        
+        else if(currentCollider == GameManager.Instance.entrance)
+            gameData.locationCompositeCollider = "entrance";
+        
+        else if(currentCollider == GameManager.Instance.livingroom)
+            gameData.locationCompositeCollider = "livingroom";
+        
+        else if(currentCollider == GameManager.Instance.kitchen)
+            gameData.locationCompositeCollider = "kitchen";
     }
 
     public void FadeIn(float timeToFadeIn)

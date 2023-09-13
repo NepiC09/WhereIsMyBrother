@@ -59862,6 +59862,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4bb31c466f3b634d91a27c27d7ed737, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hallway: {fileID: 2028476314}
+  entrance: {fileID: 1993746065}
+  bathroom: {fileID: 161041170}
+  livingroom: {fileID: 1387816336}
+  kitchen: {fileID: 2127433956}
+  annroom: {fileID: 102928856}
 --- !u!1 &1006592619
 GameObject:
   m_ObjectHideFlags: 0
