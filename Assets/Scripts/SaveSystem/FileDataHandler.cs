@@ -5,17 +5,17 @@ using UnityEngine;
 public class FileDataHandler
 {
     private string dataDirPath = "";
-    private string dataFileName = "";
+    //private string dataFileName = "";
 
     public FileDataHandler(string dataDirPath, string dataFileName)
     {
         this.dataDirPath = dataDirPath;
-        this.dataFileName = dataFileName;
+        //this.dataFileName = dataFileName;
     }
 
-    public GameData Load()
+    public GameData Load(string fileName)
     {
-        string fullPath = Path.Combine(dataDirPath, dataFileName);
+        string fullPath = Path.Combine(dataDirPath, fileName);
         GameData loadedData = null;
         if (File.Exists(fullPath))
         {
@@ -39,9 +39,9 @@ public class FileDataHandler
         return loadedData;
     }
 
-    public void Save(GameData gameData)
+    public void Save(GameData gameData, string fileName)
     {
-        string fullPath = Path.Combine(dataDirPath, dataFileName);
+        string fullPath = Path.Combine(dataDirPath, fileName);
         try
         {
             Directory.CreateDirectory(Path.GetDirectoryName(fullPath));
@@ -59,5 +59,35 @@ public class FileDataHandler
         {
             Debug.LogError("Error occured when trying to save data to  fle: " + fullPath + "\n" + e);
         }
+    }
+
+    public bool isExistSaveFile(string fileName) {
+        string fullPath = Path.Combine(dataDirPath, fileName);
+        if (File.Exists(fullPath))
+        {
+            try
+            {
+                string dataToLoad = "";
+                using (FileStream stream = new FileStream(fullPath, FileMode.Open))
+                {
+                    using (StreamReader reader = new StreamReader(stream))
+                    {
+                        dataToLoad = reader.ReadToEnd();
+                    }
+                }
+                return true;
+            }
+            catch (Exception e)
+            {
+                Debug.LogError("Error occured when trying to load data from file: " + fullPath + "\n" + e);
+            }
+        }
+        return false;
+    }
+
+    public DateTime returnLastWriteFile(string fileName)
+    {
+        string fullPath = Path.Combine(dataDirPath, fileName);
+        return File.GetLastWriteTime(fullPath);
     }
 }

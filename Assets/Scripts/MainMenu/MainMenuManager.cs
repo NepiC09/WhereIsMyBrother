@@ -8,7 +8,7 @@ public class MainMenuManager : MonoBehaviour
 {
     [SerializeField] private CanvasGroup faderCanvas;
     [SerializeField] private SaveSystemManager saveSystemManager;
-    [SerializeField] private Button loadGameButton; //TEST
+    [SerializeField] private ChooseSave chooseSave;
 
     private void Start()
     {
@@ -16,6 +16,7 @@ public class MainMenuManager : MonoBehaviour
         faderCanvas.LeanAlpha(1f, 0f);
         faderCanvas.LeanAlpha(0f, 1f);
 
+        /*
         if (!saveSystemManager.isHaveSave())
         {
             loadGameButton.interactable = false;
@@ -23,6 +24,7 @@ public class MainMenuManager : MonoBehaviour
         {
             loadGameButton.interactable = true;
         }
+        */
     }
 
     public void _OnNewGameButtonPressed()
@@ -35,11 +37,7 @@ public class MainMenuManager : MonoBehaviour
     }
     public void _OnLoadGameButtonPressed()
     {
-        faderCanvas.LeanAlpha(1f, 1f).setOnComplete(() =>
-        {
-            SceneManager.LoadScene(1);
-            GlobalScripts.isStartedNewGame = false;
-        });
+        chooseSave.OpenChooseSave();
     }
     public void _OnQuitGameButtonPressed()
     {

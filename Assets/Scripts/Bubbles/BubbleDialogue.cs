@@ -51,6 +51,7 @@ public class BubbleDialogue : MonoBehaviour, IDataPersistance
 
     public void LoadData(GameData gameData)
     {
+        static_id = 0;
         isStoryPlayed = gameData.bubblesPlayed[id];
     }
     public void SaveData(ref GameData gameData)

@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -8,6 +9,11 @@ public class PauseMenu : MonoBehaviour
 
     [Header("GUI Panels")]
     [SerializeField] private GameObject[] GUIPanelList;
+    [SerializeField] private AskPanel askPanel;
+
+    [Header("Slots Panels")]
+    [SerializeField] private ChooseSave SaveSlots;
+    [SerializeField] private ChooseSave LoadSlots;
 
     private CanvasGroup canvasGroup;
     private float animationTime = 0.2f;
@@ -61,12 +67,15 @@ public class PauseMenu : MonoBehaviour
     }
     private void ClosePauseMenu()
     {
-        PlayerController.Instance.setPlayable(true);
-        canvasGroup.LeanAlpha(0, animationTime);
-        LeanTween.scale(gameObject, Vector3.zero, animationTime).setOnComplete(() =>
+        if (SaveSlots.transform.localScale == Vector3.zero && LoadSlots.transform.localScale == Vector3.zero)
         {
-            gameObject.SetActive(false);
-        });
+            PlayerController.Instance.setPlayable(true);
+            canvasGroup.LeanAlpha(0, animationTime);
+            LeanTween.scale(gameObject, Vector3.zero, animationTime).setOnComplete(() =>
+            {
+                gameObject.SetActive(false);
+            });
+        }
     }
 
     //TESTING
@@ -77,14 +86,43 @@ public class PauseMenu : MonoBehaviour
         Fader.Instance.FadeInOut(1f, 0.5f, 1f, SaveSystemManager.Instance.NewGame);
     }
     public void _SaveGameButtonPressed()
-    {   
-        SaveSystemManager.Instance.SaveGame();
-        ClosePauseMenu();
+    {
+        SaveSlots.OpenChooseSave();
     }
     public void _LoadGameButtonPressed()
     {
-        //SaveSystemManager.Instance.LoadGame();
-        ClosePauseMenu();
-        Fader.Instance.FadeInOut(1f, 0.5f, 1f, SaveSystemManager.Instance.LoadGame);
+        LoadSlots.OpenChooseSave();
+    }
+
+    public void _QuitGameButtonPressed() {
+        askPanel.setText("Сохранить игру?");
+        askPanel.OpenAskPanel();
+        askPanel.onAskChoiced.AddListener((bool isYes) => {
+            askPanel.onAskChoiced.RemoveAllListeners();
+            if (isYes)
+            {
+                GlobalScripts.currentSaveFileName = SaveSystemManager.Instance.fileName;
+                SaveSystemManager.Instance.SaveGame(SaveSystemManager.Instance.fileName);
+            }
+            Application.Quit();
+        });
+    }
+
+    public void _MainMenuButtonPressed() {
+        askPanel.setText("Сохранить игру?");
+        askPanel.OpenAskPanel();
+        askPanel.onAskChoiced.AddListener((bool isYes) => {
+            askPanel.onAskChoiced.RemoveAllListeners();
+            if (isYes)
+            {
+                GlobalScripts.currentSaveFileName = SaveSystemManager.Instance.fileName;
+                SaveSystemManager.Instance.SaveGame(SaveSystemManager.Instance.fileName);
+            }
+            Fader.Instance.GetComponent<CanvasGroup>().LeanAlpha(1f, 0.25f).setOnComplete(() =>
+            {
+                SceneManager.LoadScene(0);
+                //GlobalScripts.isStartedNewGame = false;
+            });
+        });
     }
 }
