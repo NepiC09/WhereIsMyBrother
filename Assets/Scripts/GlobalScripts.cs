@@ -1,10 +1,10 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 public static class GlobalScripts
 {
-    public const string RU_LOCALIZATION = "ru_RU";
     public static string language;
     public static bool isStartedNewGame = false;
     public static string currentSaveFileName = "";

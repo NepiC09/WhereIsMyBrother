@@ -36,7 +36,7 @@ public struct Diary
         }
         else
         {
-            Debug.LogWarning("There's no key in conditions in Diary: " + key);
+            //Debug.LogWarning("There's no key in conditions in Diary: " + key);
             return false;
         }
     }
@@ -46,7 +46,7 @@ public struct Diary
         if (conditions.ContainsKey(key))
         {
             conditions[key] = value;
-            Debug.Log("Diary: Key " + key + " was changed to: " + value);
+            //Debug.Log("Diary: Key " + key + " was changed to: " + value);
 
 
             if (value == true)
@@ -63,7 +63,7 @@ public struct Diary
         }
         else
         {
-            Debug.LogWarning("There's no key in conditions in Diary: " + key);
+            //Debug.LogWarning("There's no key in conditions in Diary: " + key);
         }
 
         if (value == true)

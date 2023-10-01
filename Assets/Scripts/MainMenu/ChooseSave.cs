@@ -1,9 +1,7 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.IO;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -17,6 +15,8 @@ public class ChooseSave : MonoBehaviour
     [SerializeField] private PauseMenu pauseMenu;
     [SerializeField] bool isSavePanel;
     [SerializeField] AskPanel askPanel;
+
+    public UnityEvent onSaveChoosed;
 
     private void Start()
     {
@@ -65,8 +65,7 @@ public class ChooseSave : MonoBehaviour
     
     public void CloseChooseSave()
     {
-
-        gameObject.LeanScale(Vector3.zero, 0.25f);
+        gameObject?.LeanScale(Vector3.zero, 0.25f);
     }
 
     private void CancelPerformed(InputAction.CallbackContext context)
@@ -100,6 +99,7 @@ public class ChooseSave : MonoBehaviour
 
                     gameObject.LeanAlpha(1f, 0.05f).setOnComplete(() => { setButtonText(button); });
                     CloseChooseSave();
+                    onSaveChoosed?.Invoke();
                 }
                 askPanel.onAskChoiced.RemoveAllListeners();
             });

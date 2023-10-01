@@ -17,7 +17,7 @@ public struct RedSegment
         }
         else
         {
-            Debug.LogWarning("There's no key in conditions in RedSegment: " + key);
+            //Debug.LogWarning("There's no key in conditions in RedSegment: " + key);
             return false;
         }
     }
@@ -27,7 +27,7 @@ public struct RedSegment
         if (conditions.ContainsKey(key))
         {
             conditions[key] = value;
-            Debug.Log("RedSegment: Key " + key + " was changed to: " + value);
+            //Debug.Log("RedSegment: Key " + key + " was changed to: " + value);
         }
 
         if (value == true)

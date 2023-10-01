@@ -24,7 +24,7 @@ public struct GreenSegment
         }
         else
         {
-            Debug.LogWarning("There's no key in conditions in GreenSegment: " + key);
+            //Debug.LogWarning("There's no key in conditions in GreenSegment: " + key);
             return false;
         }
     }
@@ -34,7 +34,7 @@ public struct GreenSegment
         if (conditions.ContainsKey(key))
         {
             conditions[key] = value;
-            Debug.Log("GreenSegment: Key " + key + " was changed to: " + value);
+            //Debug.Log("GreenSegment: Key " + key + " was changed to: " + value);
         }
 
         if (value == true)

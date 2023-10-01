@@ -25,7 +25,7 @@ public struct Inventory
         }
         else
         {
-            Debug.LogWarning("There's no key in conditions in Inventory: " + key);
+            //Debug.LogWarning("There's no key in conditions in Inventory: " + key);
             return false;
         }
     }
@@ -35,7 +35,7 @@ public struct Inventory
         if (conditions.ContainsKey(key))
         {
             conditions[key] = value;
-            Debug.Log("Inventory: Key " + key + " was changed to: " + value);
+            //Debug.Log("Inventory: Key " + key + " was changed to: " + value);
         }
 
         if (value == true)

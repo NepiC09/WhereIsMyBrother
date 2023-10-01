@@ -58,6 +58,6 @@ public class GameData
         //LITTLE BOY VISUAL
         littleBoySkin = LittleBoyVisual.Skins.HELMET;
         //GAME MANAGER
-        gameManager_language = GlobalScripts.RU_LOCALIZATION;
+        gameManager_language = LanguageManager.RU_LOCALIZATION;
     }
 }

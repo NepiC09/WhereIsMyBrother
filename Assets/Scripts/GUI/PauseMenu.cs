@@ -10,6 +10,7 @@ public class PauseMenu : MonoBehaviour
     [Header("GUI Panels")]
     [SerializeField] private GameObject[] GUIPanelList;
     [SerializeField] private AskPanel askPanel;
+    [SerializeField] private OptionsMenu optionsMenu;
 
     [Header("Slots Panels")]
     [SerializeField] private ChooseSave SaveSlots;
@@ -67,7 +68,7 @@ public class PauseMenu : MonoBehaviour
     }
     private void ClosePauseMenu()
     {
-        if (SaveSlots.transform.localScale == Vector3.zero && LoadSlots.transform.localScale == Vector3.zero)
+        if (SaveSlots.transform.localScale == Vector3.zero && LoadSlots.transform.localScale == Vector3.zero && optionsMenu.transform.localScale == Vector3.zero)
         {
             PlayerController.Instance.setPlayable(true);
             canvasGroup.LeanAlpha(0, animationTime);
@@ -101,8 +102,10 @@ public class PauseMenu : MonoBehaviour
             askPanel.onAskChoiced.RemoveAllListeners();
             if (isYes)
             {
-                GlobalScripts.currentSaveFileName = SaveSystemManager.Instance.fileName;
-                SaveSystemManager.Instance.SaveGame(SaveSystemManager.Instance.fileName);
+                SaveSlots.OpenChooseSave();
+                SaveSlots.onSaveChoosed.AddListener(() => {
+                    Application.Quit();
+                });
             }
             Application.Quit();
         });
@@ -115,8 +118,15 @@ public class PauseMenu : MonoBehaviour
             askPanel.onAskChoiced.RemoveAllListeners();
             if (isYes)
             {
-                GlobalScripts.currentSaveFileName = SaveSystemManager.Instance.fileName;
-                SaveSystemManager.Instance.SaveGame(SaveSystemManager.Instance.fileName);
+                SaveSlots.OpenChooseSave();
+                SaveSlots.onSaveChoosed.AddListener(() => {
+                    Fader.Instance.GetComponent<CanvasGroup>().LeanAlpha(1f, 0.25f).setOnComplete(() =>
+                    {
+                        SceneManager.LoadScene(0);
+                        //GlobalScripts.isStartedNewGame = false;
+                    });
+                });
+                return;
             }
             Fader.Instance.GetComponent<CanvasGroup>().LeanAlpha(1f, 0.25f).setOnComplete(() =>
             {
@@ -124,5 +134,9 @@ public class PauseMenu : MonoBehaviour
                 //GlobalScripts.isStartedNewGame = false;
             });
         });
+    }
+    public void _OnOptionMenuButtonPressed()
+    {
+        optionsMenu.OpenOptionsMenu();
     }
 }
