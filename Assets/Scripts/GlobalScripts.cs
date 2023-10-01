@@ -1,11 +1,9 @@
 using System;
 using System.Collections;
-using UnityEngine;
-using UnityEngine.Events;
 
 public static class GlobalScripts
 {
-    public static string language;
+    public static string language = "ru_RU";
     public static bool isStartedNewGame = false;
     public static string currentSaveFileName = "";
 

@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -21,16 +20,16 @@ public class LocaleText : MonoBehaviour
     }
 
     void Start()
-    {     
-        StartCoroutine(WaitChangeLanguage());
-    }
-
-    private IEnumerator WaitChangeLanguage() {
-        yield return new WaitForSeconds(1f);
-
+    {
         LanguageManager.Instance.languageChanged.AddListener(localeChanged);
+        StartCoroutine(changeTextStart());
     }
 
+    private IEnumerator changeTextStart()
+    {
+        yield return null;
+        localeChanged(GlobalScripts.language);
+    }
 
     private void localeChanged(string locale)
     {

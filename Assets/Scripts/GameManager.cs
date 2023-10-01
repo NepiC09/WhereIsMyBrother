@@ -22,13 +22,14 @@ public class GameManager : MonoBehaviour, IDataPersistance
     }
     public void LoadData(GameData gameData)
     {
-        GlobalScripts.language = gameData.gameManager_language;
+        //GlobalScripts.language = gameData.gameManager_language;
     }
     public void SaveData(ref GameData gameData)
     {
-        gameData.gameManager_language = GlobalScripts.language;
+        //gameData.gameManager_language = GlobalScripts.language;
     }
 
+    
     public string GetLanguage()
     {
         return GlobalScripts.language;

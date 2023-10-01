@@ -66,6 +66,7 @@ public class ChooseSave : MonoBehaviour
     public void CloseChooseSave()
     {
         gameObject?.LeanScale(Vector3.zero, 0.25f);
+        playerInput.currentActionMap.FindAction("Cancel").performed -= CancelPerformed;
     }
 
     private void CancelPerformed(InputAction.CallbackContext context)
@@ -75,6 +76,7 @@ public class ChooseSave : MonoBehaviour
 
     public void onLoadButtonPressed(string fileName)
     {
+        playerInput.currentActionMap.FindAction("Cancel").performed -= CancelPerformed;
         GlobalScripts.currentSaveFileName = fileName + ".txt";
         
         faderCanvas.LeanAlpha(1f, 1f).setOnComplete(() =>

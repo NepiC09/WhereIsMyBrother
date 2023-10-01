@@ -1,7 +1,5 @@
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.Rendering;
 
 public class LanguageManager : MonoBehaviour
 {
@@ -20,7 +18,8 @@ public class LanguageManager : MonoBehaviour
     private void Start()
     {
         language = GlobalScripts.language;
-        languageChanged?.Invoke(language);
+        Debug.Log(language);
+        //languageChanged?.Invoke(language);
     }
 
     public void _onLanguageButtonPressed(string lang)

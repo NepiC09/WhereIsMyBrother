@@ -13,19 +13,8 @@ public class MainMenuManager : MonoBehaviour
 
     private void Start()
     {
-        GlobalScripts.language = LanguageManager.RU_LOCALIZATION; //FOR TESTS
         faderCanvas.LeanAlpha(1f, 0f);
         faderCanvas.LeanAlpha(0f, 1f);
-
-        /*
-        if (!saveSystemManager.isHaveSave())
-        {
-            loadGameButton.interactable = false;
-        } else
-        {
-            loadGameButton.interactable = true;
-        }
-        */
     }
 
     public void _OnNewGameButtonPressed()

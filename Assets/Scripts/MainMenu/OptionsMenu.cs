@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -17,7 +15,9 @@ public class OptionsMenu : MonoBehaviour
     public void CloseOptionsMenu()
     {
         gameObject?.LeanScale(Vector3.zero, 0.25f);
+        playerInput.currentActionMap.FindAction("Cancel").performed -= CancelPerformed;
     }
+
     private void CancelPerformed(InputAction.CallbackContext context)
     {
         CloseOptionsMenu();
