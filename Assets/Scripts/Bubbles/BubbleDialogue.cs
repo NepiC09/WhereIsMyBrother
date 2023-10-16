@@ -84,7 +84,7 @@ public class BubbleDialogue : MonoBehaviour, IDataPersistance
         isBubblePlaying = true;
         canvasGroup.alpha = 1;
 ;       currentStory = new Story(bubbleStory.text);
-        currentStory.ChoosePathString(GameManager.Instance.GetLanguage());
+        currentStory.ChoosePathString(LanguageManager.Instance.language);
         StartCoroutine(StoryProcess());
     }
 

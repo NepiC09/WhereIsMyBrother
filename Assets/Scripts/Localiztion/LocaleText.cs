@@ -28,6 +28,9 @@ public class LocaleText : MonoBehaviour
     private IEnumerator changeTextStart()
     {
         yield return null;
+        yield return null;
+        yield return null;
+        yield return null;
         localeChanged(GlobalScripts.language);
     }
 

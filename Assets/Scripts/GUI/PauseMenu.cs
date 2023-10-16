@@ -96,7 +96,13 @@ public class PauseMenu : MonoBehaviour
     }
 
     public void _QuitGameButtonPressed() {
-        askPanel.setText("Сохранить игру?");
+        if (LanguageManager.Instance.language == LanguageManager.RU_LOCALIZATION)
+        {
+            askPanel.setText("Сохранить игру?");
+        }else if (LanguageManager.Instance.language == LanguageManager.EN_LOCALIZATION)
+        {
+            askPanel.setText("Save game?");
+        }
         askPanel.OpenAskPanel();
         askPanel.onAskChoiced.AddListener((bool isYes) => {
             askPanel.onAskChoiced.RemoveAllListeners();
@@ -112,7 +118,14 @@ public class PauseMenu : MonoBehaviour
     }
 
     public void _MainMenuButtonPressed() {
-        askPanel.setText("Сохранить игру?");
+        if (LanguageManager.Instance.language == LanguageManager.RU_LOCALIZATION)
+        {
+            askPanel.setText("Сохранить игру?");
+        }
+        else if (LanguageManager.Instance.language == LanguageManager.EN_LOCALIZATION)
+        {
+            askPanel.setText("Save game?");
+        }
         askPanel.OpenAskPanel();
         askPanel.onAskChoiced.AddListener((bool isYes) => {
             askPanel.onAskChoiced.RemoveAllListeners();

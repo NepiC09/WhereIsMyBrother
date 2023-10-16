@@ -1,3 +1,3 @@
-===ru_RU===
-У меня нет на это времени #speaker: Аня
+===en_EN===
+I don't have time for this #speaker: Anya
 ->END

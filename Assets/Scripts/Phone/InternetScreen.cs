@@ -183,7 +183,14 @@ public class InternetScreen : MonoBehaviour
         searchLabel.text = searchLabel.text.Replace("|", string.Empty);
         if (searchLabel.text.Length == 0)
         {
-            searchLabel.text = "¬ведите поисковой запрос или URL-...";
+            if (LanguageManager.Instance.language == LanguageManager.RU_LOCALIZATION)
+            {
+                searchLabel.text = "¬ведите поисковой запрос или URL-...";
+            } 
+            else if (LanguageManager.Instance.language == LanguageManager.EN_LOCALIZATION)
+            {
+                searchLabel.text = "Search text or URL...";
+            }
         }
     }
 
@@ -196,7 +203,8 @@ public class InternetScreen : MonoBehaviour
 
         prevState = state;
         state = States.KeyBoardOnFirstScreen;
-        if(searchLabel.text == "¬ведите поисковой запрос или URL-...")
+
+        if(searchLabel.text == "¬ведите поисковой запрос или URL-..." || searchLabel.text == "Search text or URL...")
         {
             searchLabel.text = "";
         }
@@ -265,6 +273,8 @@ public class InternetScreen : MonoBehaviour
 
     private void SearchCompare()
     {
+        /////////////////////////////////////////////////////////
+        //////////////////////////////////////////////////////// —ƒ≈Ћј“№ Ћќ јЋ»«ј÷»ё
         //только если вз€т нож
         if(searchLabel.text.ToLower() == "дф колосс" && BlueSegment.GetValue("isKnifeGotten"))
         {

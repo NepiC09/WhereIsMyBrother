@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -50,7 +51,14 @@ public class SaveSystemManager : MonoBehaviour
 
     public void NewGame()
     {
-        MessageBoxes.Instance.OpenUpLeftMessage("Начата новая игра");
+        if (LanguageManager.Instance.language == LanguageManager.RU_LOCALIZATION)
+        {
+            MessageBoxes.Instance.OpenUpLeftMessage("Начата новая игра");
+        }
+        else if (LanguageManager.Instance.language == LanguageManager.EN_LOCALIZATION)
+        {
+            MessageBoxes.Instance.OpenUpLeftMessage("New game started");
+        }
         this.gameData = new GameData();
         foreach (IDataPersistance dataPersistance in dataPersistanceObjectsList)
         {
@@ -62,8 +70,14 @@ public class SaveSystemManager : MonoBehaviour
     public void LoadGame(string fileName)
     {
         this.gameData = fileDataHandler.Load(fileName);
-
-        MessageBoxes.Instance.OpenUpLeftMessage("Игра загружается");
+        if (LanguageManager.Instance.language == LanguageManager.RU_LOCALIZATION)
+        {
+            MessageBoxes.Instance.OpenUpLeftMessage("Игра загружается");
+        }
+        else if (LanguageManager.Instance.language == LanguageManager.EN_LOCALIZATION)
+        {
+            MessageBoxes.Instance.OpenUpLeftMessage("The game is loading");
+        }
         if (this.gameData == null)
         {
             NewGame();
@@ -77,8 +91,14 @@ public class SaveSystemManager : MonoBehaviour
 
     public void SaveGame(string fileName)
     {
-
-        MessageBoxes.Instance.OpenUpLeftMessage("Игра сохраняется");
+        if (LanguageManager.Instance.language == LanguageManager.RU_LOCALIZATION)
+        {
+            MessageBoxes.Instance.OpenUpLeftMessage("Игра сохраняется");
+        }
+        else if (LanguageManager.Instance.language == LanguageManager.EN_LOCALIZATION)
+        {
+            MessageBoxes.Instance.OpenUpLeftMessage("The game is saved");
+        }
 
         foreach (IDataPersistance dataPersistance in dataPersistanceObjectsList)
         {

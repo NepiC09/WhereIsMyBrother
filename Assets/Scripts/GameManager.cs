@@ -29,9 +29,10 @@ public class GameManager : MonoBehaviour, IDataPersistance
         //gameData.gameManager_language = GlobalScripts.language;
     }
 
-    
+    /*
     public string GetLanguage()
     {
         return GlobalScripts.language;
     }
+    */
 }

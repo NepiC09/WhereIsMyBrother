@@ -110,7 +110,7 @@ public class DialogueManager : MonoBehaviour, IDataPersistance
     {
         PlayerController.Instance.setPlayable(false);
         currentStory = new Story(inkJSON.text);
-        currentStory.ChoosePathString(GameManager.Instance.GetLanguage());
+        currentStory.ChoosePathString(LanguageManager.Instance.language);
         isDialoguePlaying = true;
         dialogueGUI.SetActive(true);
         dialoguePanel.SetActive(true);

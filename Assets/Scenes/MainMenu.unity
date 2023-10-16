@@ -3689,6 +3689,7 @@ GameObject:
   - component: {fileID: 1877066205}
   - component: {fileID: 1877066207}
   - component: {fileID: 1877066206}
+  - component: {fileID: 1877066208}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -3813,6 +3814,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1877066204}
   m_CullTransparentMesh: 1
+--- !u!114 &1877066208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1877066204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43a823ca9f3df23439256bb3a4432f6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ru_Text: "\u0412\u044B\u0431\u0435\u0440\u0438\u0442\u0435 \u0441\u043E\u0445\u0440\u0430\u043D\u0435\u043D\u0438\u0435"
+  en_Text: Choose save
 --- !u!1 &1951107072
 GameObject:
   m_ObjectHideFlags: 0

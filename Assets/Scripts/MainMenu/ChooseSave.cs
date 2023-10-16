@@ -42,7 +42,14 @@ public class ChooseSave : MonoBehaviour
             if (!saveSystemManager.isHaveSave(button.name + ".txt"))
             {
                 button.interactable = false;
-                button.GetComponentInChildren<TextMeshProUGUI>().text = "Пустой слот";
+                if (LanguageManager.Instance.language == LanguageManager.RU_LOCALIZATION)
+                {
+                    button.GetComponentInChildren<TextMeshProUGUI>().text = "Пустой слот";
+                }
+                else if (LanguageManager.Instance.language == LanguageManager.EN_LOCALIZATION)
+                {
+                    button.GetComponentInChildren<TextMeshProUGUI>().text = "Empty slot";
+                }
             }
             else
             {
@@ -91,7 +98,13 @@ public class ChooseSave : MonoBehaviour
     {
         if(pauseMenu != null && askPanel != null)
         {
-            askPanel.setText("Сохранить в этом слоте?");
+            if (LanguageManager.Instance.language == LanguageManager.RU_LOCALIZATION)
+            {
+                askPanel.setText("Сохранить в этом слоте?");
+            } else if(LanguageManager.Instance.language == LanguageManager.EN_LOCALIZATION)
+            {
+                askPanel.setText("Save in this slot?");
+            }
             askPanel.OpenAskPanel();
             askPanel.onAskChoiced.AddListener((bool isYes) => {
                 if (isYes)
@@ -126,7 +139,14 @@ public class ChooseSave : MonoBehaviour
         }
         else
         {
-            button.GetComponentInChildren<TextMeshProUGUI>().text = "Пустой слот";
+            if (LanguageManager.Instance.language == LanguageManager.RU_LOCALIZATION)
+            {
+                button.GetComponentInChildren<TextMeshProUGUI>().text = "Пустой слот";
+            }
+            else if (LanguageManager.Instance.language == LanguageManager.EN_LOCALIZATION)
+            {
+                button.GetComponentInChildren<TextMeshProUGUI>().text = "Empty slot";
+            }
         }
     }
 }
