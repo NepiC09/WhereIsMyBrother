@@ -276,7 +276,7 @@ public class InternetScreen : MonoBehaviour
         /////////////////////////////////////////////////////////
         //////////////////////////////////////////////////////// —ƒ≈Ћј“№ Ћќ јЋ»«ј÷»ё
         //только если вз€т нож
-        if(searchLabel.text.ToLower() == "дф колосс" && BlueSegment.GetValue("isKnifeGotten"))
+        if((searchLabel.text.ToLower() == "дф колосс" || searchLabel.text.ToLower() == "vf colossus") && BlueSegment.GetValue("isKnifeGotten"))
         {
             prevState = state;
             state = States.BrowserScreen;
