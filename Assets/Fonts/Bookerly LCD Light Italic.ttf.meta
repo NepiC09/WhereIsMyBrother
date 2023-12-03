@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: d6126fcd8aa4b854188b18f09ff09776
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Bookerly
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 12955d08d1e80734fbd23ff455475255, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

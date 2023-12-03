@@ -1,0 +1,27 @@
+fileFormatVersion: 2
+guid: 99b11d038fc6331499e64496a9ba3036
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Bookerly
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: c71ed4b9fc1bc97498631d0826c965fc, type: 3}
+  - {fileID: 12800000, guid: d7174f9b1d55fa0478e0a3d48a5a5e5c, type: 3}
+  - {fileID: 12800000, guid: 182b91ce011a1a146b86df75545971d4, type: 3}
+  - {fileID: 12800000, guid: 07a54480a1a882b4d827c6e1037c26dd, type: 3}
+  - {fileID: 12800000, guid: 12955d08d1e80734fbd23ff455475255, type: 3}
+  - {fileID: 12800000, guid: d6126fcd8aa4b854188b18f09ff09776, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

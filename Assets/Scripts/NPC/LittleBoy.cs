@@ -68,6 +68,7 @@ public class LittleBoy : MonoBehaviour
 
     public void LooseHelmet()
     {
-        littleBoyVisual.SetSkin(LittleBoyVisual.Skins.DEFAULT);
+        littleBoyVisual.SetHelmet(true);
+        //littleBoyVisual.SetSkin(LittleBoyVisual.Skins.DEFAULT);
     }
 }

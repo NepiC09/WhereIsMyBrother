@@ -26,7 +26,8 @@ public class GameData
     //PLAYER VISUAL
     public PlayerVisual.Emotion playerEmotion;
     //LITTLE BOY VISUAL
-    public LittleBoyVisual.Skins littleBoySkin;
+    public bool hasHelmet;
+    //public LittleBoyVisual.Skins littleBoySkin;
     //GAME MANAGER
     public string gameManager_language;
 
@@ -56,7 +57,8 @@ public class GameData
         //PLAYER VISUAL
         playerEmotion = PlayerVisual.Emotion.NORMAL;
         //LITTLE BOY VISUAL
-        littleBoySkin = LittleBoyVisual.Skins.HELMET;
+        hasHelmet = true;
+        //littleBoySkin = LittleBoyVisual.Skins.HELMET;
         //GAME MANAGER
         gameManager_language = LanguageManager.RU_LOCALIZATION;
     }
